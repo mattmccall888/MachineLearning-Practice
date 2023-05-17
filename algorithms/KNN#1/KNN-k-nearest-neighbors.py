@@ -6,6 +6,12 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from collections import Counter
+from pandas import read_csv
+#from sklearn import datasets
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
+cmap = ListedColormap(['#FF0000','#00FF00','#0000FF'])
 
 
 #In order to calculate distances, we use euclidan distance, which is calculated as follows:
@@ -48,8 +54,21 @@ class KNN:
         accuracy = np.sum(y_true == y_pred) / len(y_true)
         return accuracy
     
+#Load the iris dataset
+names = ['sepal-length','sepal-width','petal-length','petal-width','class']
+iris = read_csv("C:/Users/mattb/CompSci/MachineLearning-Practice/algorithms/KNN#1/iris.data", names=names)
+array = iris.values
+X = array[:,0:4]
+Y = array[:,4]
+validation_size = 0.20
+seed = 1
 
+X_train, X_validation, Y_train, Y_validation = train_test_split(X,Y,test_size=validation_size, random_state=seed)
+clf = KNN(k=13)
+clf.fit(X_train, Y_train)
+predictions = clf.predict(X_validation)
 
+print("KNN classification accuracy:", clf.accuracy(Y_validation, predictions))
 
 
 
