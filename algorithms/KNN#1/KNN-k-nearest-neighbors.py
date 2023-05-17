@@ -18,8 +18,6 @@ cmap = ListedColormap(['#FF0000','#00FF00','#0000FF'])
 #d = sqrt(sum from i=1 to n (qi-pi)^2)
 #This is the distance between two points in a 2D plane
 
-
-
 class KNN:
 
     def __init__(self, k=3):
@@ -64,7 +62,7 @@ validation_size = 0.20
 seed = 1
 
 X_train, X_validation, Y_train, Y_validation = train_test_split(X,Y,test_size=validation_size, random_state=seed)
-clf = KNN(k=13)
+clf = KNN(k=5)
 clf.fit(X_train, Y_train)
 predictions = clf.predict(X_validation)
 
