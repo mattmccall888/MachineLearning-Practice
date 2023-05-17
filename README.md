@@ -1,2 +1,2 @@
-# ML-Practice
-All files for my journey in learning about machine learning
+# Machine Learning Practice Folder
+In this folder you will find all my files that I have coded or tinkered with while learning about machine learning.
